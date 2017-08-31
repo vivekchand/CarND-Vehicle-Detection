@@ -9,8 +9,10 @@ The goals / steps of this project are the following:
 * Estimate a bounding box for vehicles detected.
 
 [//]: # (Image References)
-[car_not_car]: ./examples/car_not_car.png
-[HOG_example]: ./examples/HOG_example.jpg
+[car]: ./examples/car.png
+[non_car]: ./examples/non_car.png
+[grayscale]: ./examples/grayscale.jpg
+[hog_visualization]: ./examples/hog_visualization.jpg
 [image3]: ./examples/sliding_windows.jpg
 [image4]: ./examples/sliding_window.jpg
 [image5]: ./examples/bboxes_and_heat.png
@@ -27,13 +29,14 @@ The code for this step is contained in the first code cell of the IPython notebo
 I started by reading in all the `vehicle` and `non-vehicle` images.  
 Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
-![alt text][car_not_car]
+![car][car]
+![non car][non_car]
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  
 I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
-![alt text][HOG_example]
+![hog_visualization][hog_visualization]
 
 #### 2. HOG Parameters
 
