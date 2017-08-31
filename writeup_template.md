@@ -15,8 +15,8 @@ The goals / steps of this project are the following:
 * Estimate a bounding box for vehicles detected.
 
 [//]: # (Image References)
-[image1]: ./examples/car_not_car.png
-[image2]: ./examples/HOG_example.jpg
+[car_not_car]: ./examples/car_not_car.png
+[HOG_example]: ./examples/HOG_example.jpg
 [image3]: ./examples/sliding_windows.jpg
 [image4]: ./examples/sliding_window.jpg
 [image5]: ./examples/bboxes_and_heat.png
@@ -36,40 +36,55 @@ You're reading it!
 
 ###Histogram of Oriented Gradients (HOG)
 
-####1. Explain how (and identify where in your code) you extracted HOG features from the training images.
+####1. Training images
 
 The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
 
-I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
+I started by reading in all the `vehicle` and `non-vehicle` images.  
+Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
-![alt text][image1]
+![alt text][car_not_car]
 
-I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
-
+I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  
+I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
+![alt text][HOG_example]
 
-![alt text][image2]
+####2. HOG Parameters
 
-####2. Explain how you settled on your final choice of HOG parameters.
+After exploring different color spaces and HOG parameters, following configuration was chosen which gave best test-set accuracy.
+orientations=8, pixels_per_cell=(8,8), cells_per_block=(2,2)
 
-I tried various combinations of parameters and...
+####3. Training the classifier
 
-####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
+LinearSVC is used as the classifier. The training process can be seen in the 8th cell of `Vehicle_Detection.ipynb`. The features are 
+extracted and concatenated. The training images are scaled up to 0-255 before passed into the feature extractor.
 
-I trained a linear SVM using...
+The feature includes HOG features, spatial features & color histograms. 
 
 ###Sliding Window Search
 
-####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
+####1. Detecting vehicles in unseen images
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+The code for detecting cars is in the cell 10.
+Sliding window technique is used to search a portion of an image to predict whether or not a vehicle was present. In order to increase
+efficiency, I reduced the search area by setting a region of interest which ignores the top half of the image & reduced the image by size of 1.5.
+As the window slides along the search area, the classifier is used to predict whether or not a vehicle is present based on the features in that sample.
 
-![alt text][image3]
+####2. Reduce false positives
 
-####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
+To reduce false positives & to make bounding boxes consistent & smoother across frames, heatmaps are used of the positive detections reported by classifier.
+An average of heatmaps over 15 past frames & used a threshold to remove false positives. I used scipy's label() function to identify "blobs" in the heatmap,
+which correlated to vehicles in the image. The process_image() in cell 10 applies the threshold to the vehicle found. An example of an input image (left) and a heatmap 
+applied to that image (right) is shown below:
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+####3. Visual display
+
+Bounding boxes are displayed on the images around the detected cars using draw_bounding_boxes() for the given labels. The labels are nothing but blobs of heatmaps
+mentioned above. By using an average of heatmaps over 15 frames of video, the result is a smooth & consistent bounding box around vehicles without any false positives
+in the project video.
+
 
 ![alt text][image4]
 ---
