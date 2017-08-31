@@ -12,8 +12,8 @@ The goals / steps of this project are the following:
 
 [car]: ./examples/car.png
 [non_car]: ./examples/non_car.png
-[grayscale]: ./examples/grayscale.jpg
-[hog_visualization]: ./examples/hog_visualization.jpg
+[grayscale]: ./examples/grayscale.png
+[hog_visualization]: ./examples/hog_visualization.png
 [image3]: ./examples/sliding_windows.jpg
 [image4]: ./examples/sliding_window.jpg
 [image5]: ./examples/bboxes_and_heat.png
