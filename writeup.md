@@ -25,7 +25,7 @@ The goals / steps of this project are the following:
 
 #### 1. Training images
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
+The code for this step is contained in the second code cell of the IPython notebook of the file called `vehicle_detection.ipynb`).  
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  
 Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
