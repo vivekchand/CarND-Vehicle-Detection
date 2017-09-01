@@ -25,7 +25,7 @@ The goals / steps of this project are the following:
 
 #### 1. Training images
 
-The code for this step is contained in the second code cell of the IPython notebook of the file called `vehicle_detection.ipynb`).  
+The code for this step is contained in the 2nd code cell of the IPython notebook of the file called `vehicle_detection.ipynb`).  
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  
 Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
@@ -33,13 +33,16 @@ Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 ![car][car]
 ![non car][non_car]
 
+
+#### 2. HOG Parameters
+
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  
 I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 ![hog_visualization][hog_visualization]
 
-#### 2. HOG Parameters
+The code for this step is in the 4th cell.
 
 After exploring different color spaces and HOG parameters, following configuration was chosen which gave best test-set accuracy.
 orientations=8, pixels_per_cell=(8,8), cells_per_block=(2,2)
