@@ -56,9 +56,10 @@ The feature includes HOG features, spatial features & color histograms.
 
 ### Sliding Window Search
 
+The code for sliding window search is in the cell 11.
+
 #### 1. Detecting vehicles in unseen images
 
-The code for detecting cars is in the cell 10.
 Sliding window technique is used to search a portion of an image to predict whether or not a vehicle was present. In order to increase
 efficiency, I reduced the search area by setting a region of interest which ignores the top half of the image & reduced the image by size of 1.5.
 As the window slides along the search area, the classifier is used to predict whether or not a vehicle is present based on the features in that sample.
