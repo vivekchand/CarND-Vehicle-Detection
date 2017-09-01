@@ -80,7 +80,7 @@ As the window slides along the search area, the classifier is used to predict wh
 
 To reduce false positives & to make bounding boxes consistent & smoother across frames, heatmaps are used of the positive detections reported by classifier.
 An average of heatmaps over 15 past frames & used a threshold to remove false positives. I used scipy's label() function to identify "blobs" in the heatmap,
-which correlated to vehicles in the image. The process_image() in cell 10 applies the threshold to the vehicle found. An example of an input image (left) and a heatmap 
+which correlated to vehicles in the image. The process_image() in cell 11 applies the threshold to the vehicle found. An example of an input image (left) and a heatmap 
 applied to that image (right) is shown below:
 
 #### 3. Visual display
@@ -113,8 +113,7 @@ in the project video.
 
 ### Video Implementation
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video_output.mp4)
+I have uploaded the video to youtube. It's available here [https://www.youtube.com/watch?v=1yXvzVo5t8Q](https://www.youtube.com/watch?v=1yXvzVo5t8Q)
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
