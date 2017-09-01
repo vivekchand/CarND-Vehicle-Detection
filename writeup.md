@@ -73,15 +73,10 @@ Bounding boxes are displayed on the images around the detected cars using draw_b
 mentioned above. By using an average of heatmaps over 15 frames of video, the result is a smooth & consistent bounding box around vehicles without any false positives
 in the project video.
 
-
-![alt text][image4]
----
-
 ### Video Implementation
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video.mp4)
-
+Here's a [link to my video result](./project_video_output.mp4)
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
@@ -105,7 +100,11 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ### Discussion
 
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+The pipelines works well on the project video, but is still not production ready. When there are multiple vehicles
+the detection has to be improvised. Currently if a vehicle is occluded by another vehicle, the current pipeline
+detects as one vehicle.
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+Also the pipeline needs to be improved to process the video in real time. 
 
+And vehicles that are relatively far away are not detected. It should be improved to detect any car in the camera's view
+without any overlapping just as humans do.
