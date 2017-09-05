@@ -73,7 +73,7 @@ The code for sliding window search is in the cell 11.
 #### 1. Detecting vehicles in unseen images
 
 Sliding window technique is used to search a portion of an image to predict whether or not a vehicle was present. In order to increase
-efficiency, I reduced the search area by setting a region of interest which ignores the top half of the image & reduced the image by size of 1.5.
+efficiency, I reduced the search area by setting a region of interest which ignores the top half of the image.
 As the window slides along the search area, the classifier is used to predict whether or not a vehicle is present based on the features in that sample.
 
 #### 2. Reduce false positives
@@ -113,7 +113,7 @@ in the project video.
 
 ### Video Implementation
 
-I have uploaded the video to youtube. It's available here [https://www.youtube.com/watch?v=1yXvzVo5t8Q](https://www.youtube.com/watch?v=1yXvzVo5t8Q)
+I have uploaded the video to youtube. It's available here [https://www.youtube.com/watch?v=TKslPT40Wc4](https://www.youtube.com/watch?v=TKslPT40Wc4)
 
 ### Discussion
 
